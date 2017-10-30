@@ -1,3 +1,46 @@
+" ========================================
+" Vim plugin configuration
+" ========================================
+
+" ----------------------------------------------------------------------------
+"   Plug
+" ----------------------------------------------------------------------------
+
+" Install vim-plug if we don't already have it
+if empty(glob("~/.vim/autoload/plug.vim"))
+    " Ensure all needed directories exist  (Thanks @kapadiamush)
+    execute 'mkdir -p ~/.vim/plugged'
+    execute 'mkdir -p ~/.vim/autoload'
+    " Download the actual plugin manager
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Colorschemes
+Plug 'captbaritone/molokai'
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'romainl/Apprentice'
+Plug 'sjl/badwolf'
+
+" Unite.vim is required for vimfiler
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+
+" Enhance syntax highlight for c and c++
+Plug 'justinmk/vim-syntax-extra'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"Plug 'Valloric/YouCompleteMe'
+
+filetype plugin indent on                   " required!
+call plug#end()
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -78,37 +121,22 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-" ========================================
-" Vim plugin configuration
-" ========================================
+" ================ Colorscheme ==============
 
-" ----------------------------------------------------------------------------
-"   Plug
-" ----------------------------------------------------------------------------
+"Setting for seoul256 colorscheme
+"let g:seoul256_background = 234
+"colorscheme seoul256
 
-" Install vim-plug if we don't already have it
-if empty(glob("~/.vim/autoload/plug.vim"))
-    " Ensure all needed directories exist  (Thanks @kapadiamush)
-    execute 'mkdir -p ~/.vim/plugged'
-    execute 'mkdir -p ~/.vim/autoload'
-    " Download the actual plugin manager
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
+"Setting for gruvbox colorscheme
+let g:gruvbox_contrast_dark="hard"
+set background=dark
+colorscheme gruvbox
 
-call plug#begin('~/.vim/plugged')
+"colorscheme molokai 
 
-" Colorschemes
-Plug 'captbaritone/molokai'
-" Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'altercation/vim-colors-solarized'
-" Plug 'fxn/vim-monochrome'
-" Plug 'chriskempson/base16-vim'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'ajh17/spacegray.vim'
-
-" Unite.vim is required for vimfiler
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
-
-filetype plugin indent on                   " required!
-call plug#end()
+" ================ Plugin Setup ========================
+"
+" Airline setup
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let airline_theme='PaperColor'
