@@ -22,7 +22,6 @@ Plug 'captbaritone/molokai'
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'romainl/Apprentice'
 Plug 'sjl/badwolf'
 
@@ -123,14 +122,17 @@ set sidescroll=1
 
 " ================ Colorscheme ==============
 
+" Enable 256 color in vim
+set t_Co=256
+
 "Setting for seoul256 colorscheme
 "let g:seoul256_background = 234
 "colorscheme seoul256
 
 "Setting for gruvbox colorscheme
-let g:gruvbox_contrast_dark="hard"
-set background=dark
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark="hard"
+"set background=dark
+"colorscheme gruvbox
 
 "colorscheme molokai 
 
@@ -139,4 +141,4 @@ colorscheme gruvbox
 " Airline setup
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let airline_theme='PaperColor'
+let airline_theme='wombat'
